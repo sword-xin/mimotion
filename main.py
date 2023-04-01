@@ -129,7 +129,7 @@ def login(user, password):
         "token": "access"
     }
     r1 = requests.post(url1, data=data1, headers=headers, allow_redirects=False)
-    location = r1.headers["Location"]
+    location = r1.headers.get("Location")
     try:
         code = get_code(location)
     except:
